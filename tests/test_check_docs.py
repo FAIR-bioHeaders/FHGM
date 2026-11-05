@@ -40,7 +40,10 @@ class DocumentationChecks(unittest.TestCase):
         self.assertIn("AGENTS.md", paths)
         self.assertIn("header/docs/README.md", paths)
         self.assertNotIn("header/docs/FHGFF3.md", paths)
-        self.assertNotIn("MAINTAINERS.md", paths)
+        self.assertIn("MAINTAINERS.md", paths)
+        self.assertIn("development/FHGFF3-COMPARISON.md", paths)
+        self.assertIn("development/examples/SOURCE-TEMPLATE.md", paths)
+        self.assertNotIn("docs/README.txt", paths)
 
 
 if __name__ == "__main__":

@@ -1,57 +1,45 @@
-# Contributing
+# Contributing to FHGM
 
-This repository has two scopes. Make your change in the right one.
+FHGM is in requirements gathering. Track work through
+[the family proposal #204](https://github.com/FAIR-bioHeaders/FAIR-bioHeaders-Specification/issues/204)
+and link each scoped PR to it. The fork currently has issues disabled; use the
+shared issue until maintainers establish local tracking.
 
-## FAIR FHGFF3 header contract (`header/`)
+## Active development
 
-Development of the FAIR FHGFF3 header happens here in the `header/` tree and is
-coordinated into the shared publication repository. The final model, generated
-schema, documentation, examples and conformance vectors publish in
-[FAIR-bioHeaders-Specification](https://github.com/FAIR-bioHeaders/FAIR-bioHeaders-Specification);
-this repository publishes nothing.
+Work in [development/](development/README.md). Start with real deposited GFF3
+files and compare requirements against the FHGFF3 baseline. Keep header fields,
+feature constraints, evidence assertions and validation outcomes distinct.
+Do not invent identifiers, provenance, permissions or biological relationships.
 
-- Model: `header/model/fhgff3_linkml.yml` (imports the shared core).
-- Documentation: `header/docs/FHGFF3.md`.
-- Examples and vectors: `header/examples/fhgff3/`, `header/conformance/`.
-- Provenance: `header/PROVENANCE.md`; `header/provenance.json` pins the shared
-  revision. Run `python3 scripts/check_header_parity.py` (also run in CI).
+New fields, constraints, requiredness or changed meanings are schema-contract work.
+State compatibility effects explicitly. No FHGM schema URL, version or support is
+adopted by this scaffold. David and Adam review the contract before publication
+through the shared specification. Submit branches and PRs; do not push directly
+to main or merge without maintainer approval.
 
-The `header/` files are byte-exact copies. Do not edit them in place to make a
-contract change: propose and review the change in the shared repository, then
-re-import it byte-for-byte and update the pin as described in
-`header/PROVENANCE.md`. Any new field, constraint, enum value or changed meaning
-is a schema addition with its own review cycle — not a routine edit.
+## Preserved reference material
 
-A header never makes the GFF3 features valid. Feature and biology checks belong in
-[gff3-validator](https://github.com/FAIR-bioHeaders/gff3-validator); header
-processing and parent verification belong in
-[FAIR-bioHeaders-Tools](https://github.com/FAIR-bioHeaders/FAIR-bioHeaders-Tools).
-The archived FHT-File-Converter is not an active dependency.
+Do not edit pinned files in `header/` to implement FHGM: parity deliberately checks
+FHGFF3 source bytes. Record any future base update separately, following
+[header/PROVENANCE.md](header/PROVENANCE.md). Use a separate draft model path once
+the contract design is agreed; define its generator/import strategy then.
 
-Family layout is tracked in
-[FAIR-bioHeaders-Specification#107](https://github.com/FAIR-bioHeaders/FAIR-bioHeaders-Specification/issues/107)
-and header follow-ups in [FHGFF3#2](https://github.com/FAIR-bioHeaders/FHGFF3/issues/2).
+The inherited feature model lives in `src/schema/gff.yaml` with generated outputs
+elsewhere. Its upstream permissions remain unresolved. Do not generate or reuse
+it as FHGM implementation until that boundary is resolved. The inherited Makefile
+is not an FHGM build: `make test` generates/stages and `make clean` removes docs.
 
-## Inherited GFF3 feature model (`src/`)
+## Checks
 
-Fork this repo and check out on command line
-
-Make edits in src/schema
-
-Use `make` to build targets.
-
-This tree is inherited from the biodatamodels/gff-schema fork. Its upstream
-permissions are unresolved ([FHGFF3#3](https://github.com/FAIR-bioHeaders/FHGFF3/issues/3));
-do not reuse it or fold it into the `header/` tree until that is settled.
-
-## Checks before proposing a change
-
-Follow the [CI guide](ci/README.md) for exact commands and CI scope. Run the local
-documentation checks for guidance changes, the existing unittest suite for test
-or tooling changes, and header parity before proposing a pin update. The shared
-publication checkout owns schema generation and drift baselines. No inherited
-model generation is enabled while its upstream permissions remain unresolved.
+Run the commands in [ci/README.md](ci/README.md). Add new owned Markdown to
+`.markdownlint-cli2.jsonc` so lint and local-link checks cover it. Baseline tests
+prove only the properties described by their existing fixtures; they do not
+validate FHGM records. Record checks actually run and any environment limitations.
 
 ## Contribution licensing
 
-FAIR BioHeaders contributions use [MPL-2.0](LICENSE), subject to the scope and preserved permissions stated there. This does **not** license the inherited biodatamodels/gff-schema material: no upstream root license was present in the inspected checkout, and upstream permissions remain to be clarified. New contributions must have the rights needed for their declared license; retain source notices.
+New FHGM guidance under `development/` and the FHGM setup portions identified in
+[LICENSE](LICENSE) use MPL-2.0. Preserve inherited notices and attribution. This
+license does not resolve permissions for the inherited gff-schema tree or for
+article-associated deposits; inspect those sources individually.

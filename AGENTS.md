@@ -305,3 +305,17 @@ When a PR receives code review (human or Copilot):
 
 Do not push to a repository's main branch or merge a PR without maintainer
 approval.
+
+## FHGM local development scope
+
+This repository is FAIR-bioHeaders/FHGM, forked from FHGFF3. The shared guidance
+above is inherited reference policy; preserve its shared sections. FHGM-specific
+work starts in `development/`, following its README and the shared issue #204.
+No FHGM contract is adopted. Reuse FHGFF3 requirements as a starting point; decide
+subtype versus sibling through examples and explicit schema/type-selection review.
+
+Keep `header/` as the pinned FHGFF3 baseline and inherited feature artifacts
+unchanged during setup. Baseline tests and conformance do not validate FHGM.
+Do not use inherited generation/deployment commands as an FHGM release workflow.
+New draft models require a separately defined generation/import strategy.
+Shared publication remains in FAIR-bioHeaders-Specification.

@@ -1,4 +1,13 @@
-# Changelog
+# FHGM changelog
+
+## Unreleased — development setup (2026-11-05)
+
+- Establish FHGM identity, contribution guidance and a requirements workspace.
+- Add FHGFF3 reuse comparison and worked-example provenance protocol.
+- Preserve the inherited pinned header, feature sources and baseline checks.
+- No FHGM schema, contract version, release or toolkit support is introduced.
+
+## Inherited FHGFF3 changelog
 
 ## Unreleased
 
