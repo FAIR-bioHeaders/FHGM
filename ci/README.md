@@ -1,4 +1,12 @@
-# FHGFF3 continuous integration
+# FHGM continuous integration
+
+FHGM currently retains the inherited FHGFF3 baseline checks described below.
+These verify the pinned FHGFF3 reference and its existing fixtures; they do not
+validate an FHGM contract. Owned documentation includes `development/**/*.md`.
+No feature-model generation or deployment lane is enabled. New FHGM model checks
+will be designed with the draft contract, not inferred from passing baseline CI.
+
+## Inherited FHGFF3 baseline
 
 The independently authored header and the inherited feature model have separate
 validation boundaries. This implements the remaining CI scope in

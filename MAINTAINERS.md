@@ -1,35 +1,11 @@
-# How to make a release
+# FHGM maintenance
 
-See the instructions at the top of [Makefile](Makefile)
+David Molik and Adam Wright jointly hold schema and release authority under the
+[shared governance](https://github.com/FAIR-bioHeaders/FAIR-bioHeaders-Specification/blob/main/GOVERNANCE.md).
+The optional steering-group proposal is not active.
 
-First install the linkml python package and mkdocs:
-
-```bash
-. environment.sh
-pip install -r requirements.txt
-```
-
-Then every time you change the source schema, run:
-
-```bash
-make all
-```
-
-This will generate files in:
-
- * [docs]
- * [jsonschema]
- * [shex]
- * [owl]
- * [rdf]
-
-Do **not** git add the files in docs
-
-Once the files are generated, run
-
-```bash
-make gh-deploy
-```
-
-Your documentation will be available from a URL https://my_org_or_name.github.io/my_schema/
-
+FHGM has no release procedure yet. Do not use the inherited Makefile deployment
+commands as an FHGM publication workflow. Before release, agree the contract,
+base relationship, schema identity/version, generation and conformance checks,
+INSDC coverage review, and coordinated toolkit support in the shared specification.
+Publication remains a separate maintainer action.

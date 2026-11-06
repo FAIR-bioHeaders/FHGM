@@ -1,4 +1,4 @@
-FHGFF3
+FHGM (forked from FHGFF3)
 
 MPL-2.0 SCOPE AND PROVENANCE
 
@@ -7,6 +7,12 @@ MPL-2.0 policy. It does not determine authorship or licensing authority;
 the import commit records repository history, not proof of rights.
 
 MPL-2.0-covered FAIR BioHeaders contributions:
+- New FHGM setup text in README.md, CONTRIBUTING.md and MAINTAINERS.md;
+  development/**/*.md; the FHGM-local section of AGENTS.md; the FHGM CI
+  introduction in ci/README.md; and the documentation-scope additions in
+  .markdownlint-cli2.jsonc, introduced by the FHGM development setup change.
+  These replace or supplement inherited guidance without granting rights in
+  the excluded feature-model snapshot below.
 - The policy and scope text at the beginning of this file, before the
   “Mozilla Public License Version 2.0” heading.
 - The “Licensing” section of README.md, added in commit 413de2f.
